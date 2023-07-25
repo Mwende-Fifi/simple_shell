@@ -16,14 +16,14 @@ To run this shell program, follow these steps:
 1. Clone this repository to your local machine.
 
 ```bash
-git clone https://github.com/yourusername/simple-shell.git
-cd simple-shell
+git clone https://github.com/Mwende-Fifi/simple_shell
+cd simple_shell
 ```
 
 2. Compile the shell program.
 
 ```bash
-gcc -o simple-shell simple-shell.c
+gcc -Wall -Werror -Wextra -pedantic -std=gnu89 *.c -o hsh
 ```
 
 3. Run the shell.
