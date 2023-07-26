@@ -1,18 +1,37 @@
-#ifndef _SHELL_H_
-#define _SHELL_H
+#ifndef SHELL_H
+#define SHELL_H
 
+/*---LIBRARIES---*/
 #include <stdio.h>
-#include <stdlib.h>
-#include <errno.h>
-#include <fcntl.h>
-#include <sys/wait.h>
 #include <unistd.h>
-#include <strings.h>
-#include<limits.h>
-#include <sys/stat.h>
-#include <sys/types.h>
+#include <stdlib.h>
+#include <string.h>
+#include <sys/wait.h>
 
-/*Prototypes and function definations 
-go here */
+/*---Macros---*/
+#define TOK_DELIM " \t\r\n\a\""
+extern char **environ;
+
+/*---PROTOTYPES---*/
+/* main.c */
+void shell_interactive(void);
+void shell_no_interactive(void);
+
+/* shell_interactive.c */
+char *read_line(void);
+char **split_line(char *line);
+int execute_args(char **args);
+
+/* execute_args */
+int new_process(char **args);
+
+/* shell_no_interactive */
+char *read_stream(void);
+
+/*---Builtin func---*/
+int own_cd(char **args);
+int own_exit(char **args);
+int own_env(char **args);
+int own_help(char **args);
 
 #endif
